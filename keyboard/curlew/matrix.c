@@ -42,9 +42,6 @@ static void init_cols(void);
 static void unselect_rows(void);
 static void select_row(uint8_t row);
 
-// Curlew customisations
-static void init_oled(void);
-
 inline
 uint8_t matrix_rows(void)
 {
@@ -66,7 +63,6 @@ void matrix_init(void)
     // initialize row and col
     unselect_rows();
     init_cols();
-    init_oled();
 
     // initialize matrix state: all keys off
     for (uint8_t i=0; i < MATRIX_ROWS; i++) {
@@ -181,22 +177,4 @@ static void select_row(uint8_t row)
     //         palSetPad(GPIOA, GPIOA_PIN10, PAL_LOW);
     //         break;
     // }
-}
-
-
-// Curlew
-static void init_oled(void)
-{
-    gfxInit();
-}
-
-
-void hook_late_init(void)
-{
-    font_t font = gdispOpenFont("fixed_7x14");
-    gdispDrawString(0, 0, "Connected", font, White);
-    // Set pin mode for I2C pins
-    // PAL_MODE_ALTERNATE(1) == alternate function 1, I2C
-    /* palSetPadMode(GPIOB, GPIOB_PIN10, PAL_MODE_ALTERNATE(1) | PAL_STM32_OTYPE_OPENDRAIN);   [> SCL <] */
-    /* palSetPadMode(GPIOB, GPIOB_PIN10, PAL_MODE_ALTERNATE(1) | PAL_STM32_OTYPE_OPENDRAIN);   [> SDA <] */
 }

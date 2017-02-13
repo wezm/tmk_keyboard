@@ -58,10 +58,16 @@ GFXLIB = $(TMK_DIR)/tool/ugfx
 include $(GFXLIB)/gfx.mk
 include $(GFXLIB)/drivers/gdisp/SSD1306/driver.mk
 
+VISUALIZER_DIR = tmk_visualizer
+
 # project specific files
 SRC = matrix.c  \
       led.c     \
-      $(GFXSRC)
+      $(GFXSRC) \
+      $(VISUALIZER_DIR)/visualizer.c \
+      visualizer_user.c \
+      user_hooks.c
+
 
 ifdef KEYMAP
     SRC := keymap_$(KEYMAP).c $(SRC)
@@ -69,7 +75,7 @@ else
     SRC := keymap_plain.c $(SRC)
 endif
 
-UINCDIR = $(GFXINC)
+UINCDIR = $(GFXINC) $(VISUALIZER_DIR)
 
 include $(TMK_DIR)/tool/chibios/common.mk
 include $(TMK_DIR)/tool/chibios/chibios.mk

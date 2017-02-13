@@ -64,7 +64,7 @@
 ///////////////////////////////////////////////////////////////////////////
 #define GFX_USE_GDISP                                TRUE
 
-#define GDISP_NEED_AUTOFLUSH                         TRUE
+//#define GDISP_NEED_AUTOFLUSH                         FALSE
 //#define GDISP_NEED_TIMERFLUSH                        FALSE
 //#define GDISP_NEED_VALIDATION                        TRUE
 //#define GDISP_NEED_CLIP                              TRUE
@@ -76,7 +76,7 @@
 //#define GDISP_NEED_CONVEX_POLYGON                    FALSE
 //#define GDISP_NEED_SCROLL                            FALSE
 //#define GDISP_NEED_PIXELREAD                         FALSE
-//#define GDISP_NEED_CONTROL                           FALSE
+#define GDISP_NEED_CONTROL                           TRUE
 //#define GDISP_NEED_QUERY                             FALSE
 //#define GDISP_NEED_MULTITHREAD                       FALSE
 //#define GDISP_NEED_STREAMING                         FALSE
@@ -94,7 +94,7 @@
 //    #define GDISP_INCLUDE_FONT_DEJAVUSANS20          FALSE
 //    #define GDISP_INCLUDE_FONT_DEJAVUSANS24          FALSE
 //    #define GDISP_INCLUDE_FONT_DEJAVUSANS32          FALSE
-//    #define GDISP_INCLUDE_FONT_DEJAVUSANSBOLD12      FALSE
+   #define GDISP_INCLUDE_FONT_DEJAVUSANSBOLD12      TRUE
 //    #define GDISP_INCLUDE_FONT_FIXED_10X20           FALSE
    #define GDISP_INCLUDE_FONT_FIXED_7X14            TRUE
    #define GDISP_INCLUDE_FONT_FIXED_5X8             TRUE
@@ -106,10 +106,10 @@
 //    #define GDISP_INCLUDE_FONT_DEJAVUSANSBOLD12_AA   FALSE
 //    #define GDISP_INCLUDE_USER_FONTS                 FALSE
 
-//#define GDISP_NEED_IMAGE                             FALSE
+#define GDISP_NEED_IMAGE                             TRUE
 //    #define GDISP_NEED_IMAGE_NATIVE                  FALSE
 //    #define GDISP_NEED_IMAGE_GIF                     FALSE
-//    #define GDISP_NEED_IMAGE_BMP                     FALSE
+   #define GDISP_NEED_IMAGE_BMP                     TRUE
 //        #define GDISP_NEED_IMAGE_BMP_1               TRUE
 //        #define GDISP_NEED_IMAGE_BMP_4               TRUE
 //        #define GDISP_NEED_IMAGE_BMP_4_RLE           TRUE
@@ -290,7 +290,7 @@
 ///////////////////////////////////////////////////////////////////////////
 // GFILE                                                                 //
 ///////////////////////////////////////////////////////////////////////////
-//#define GFX_USE_GFILE                                FALSE
+#define GFX_USE_GFILE                                TRUE
 
 //#define GFILE_NEED_PRINTG                            FALSE
 //#define GFILE_NEED_SCANG                             FALSE
@@ -300,7 +300,7 @@
 //#define GFILE_NEED_NOAUTOMOUNT                       FALSE
 //#define GFILE_NEED_NOAUTOSYNC                        FALSE
 
-//#define GFILE_NEED_MEMFS                             FALSE
+#define GFILE_NEED_MEMFS                             TRUE
 //#define GFILE_NEED_ROMFS                             FALSE
 //#define GFILE_NEED_RAMFS                             FALSE
 //#define GFILE_NEED_FATFS                             FALSE
@@ -338,5 +338,9 @@
 //#define GMISC_NEED_MATRIXFLOAT2D                     FALSE
 //#define GMISC_NEED_MATRIXFIXED2D                     FALSE
 //#define GMISC_NEED_HITTEST_POLY                      FALSE
+
+// Stop warning about undefined values
+#define GOS_NEED_X_THREADS	FALSE
+#define GOS_NEED_X_HEAP		FALSE
 
 #endif /* _GFXCONF_H */

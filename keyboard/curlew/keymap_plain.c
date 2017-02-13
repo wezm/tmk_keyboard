@@ -26,10 +26,33 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "keymap.h"
 
 static const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    {{KC_BTLD, KC_CAPS, KC_SPACE}}, // test with KC_CAPS, KC_A, KC_BTLD
+    {{KC_CAPS, KC_FN1,  KC_SPC}},
+    {{KC_TRNS, KC_TRNS, KC_BSPC}},
+    // test with KC_CAPS, KC_A, KC_BTLD
 };
 
-static const action_t fn_actions[] = {
+#ifdef KEYMAP_SECTION_ENABLE
+const action_t fn_actions[] __attribute__ ((section (".keymap.fn_actions"))) = {
+#else
+const action_t fn_actions[] PROGMEM = {
+#endif
+    [0] = ACTION_DEFAULT_LAYER_SET(0),                // Default layer(not used)
+    [1] = ACTION_LAYER_MOMENTARY(1),                  // Mousekey layer(IJKL)
+   //  [2] = ACTION_LAYER_TAP_KEY(2, KC_SLASH),          // Cursor layer with Slash*
+   //  [3] = ACTION_LAYER_TAP_KEY(3, KC_SCLN),           // Mousekey layer with Semicolon*
+   //  [4] = ACTION_LAYER_TAP_KEY(4, KC_SPC),            // Mousekey layer with Space
+   //  [5] = ACTION_LAYER_MOMENTARY(4),                  // Mousekey layer(IJKL)
+   //  [6] = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_ENT),      // RControl with tap Enter
+   //  [7] = ACTION_MODS_ONESHOT(MOD_LSFT),              // Oneshot Shift
+   //  [8] = ACTION_MACRO(ALT_TAB),                      // Application switching
+   //  [9] = ACTION_MODS_KEY(MOD_LALT, KC_LEFT),
+   // [10] = ACTION_MODS_KEY(MOD_LALT, KC_RIGHT),
+
+//  [x] = ACTION_LMOD_TAP_KEY(KC_LCTL, KC_BSPC),        // LControl with tap Backspace
+//  [x] = ACTION_LMOD_TAP_KEY(KC_LCTL, KC_ESC),         // LControl with tap Esc
+//  [x] = ACTION_FUNCTION_TAP(LSHIFT_LPAREN),           // Function: LShift with tap '('
+//  [x] = ACTION_MACRO(HELLO),                          // Macro: say hello
+//  [x] = ACTION_MACRO(VOLUP),                          // Macro: media key
 };
 
 /* translates key to keycode */
