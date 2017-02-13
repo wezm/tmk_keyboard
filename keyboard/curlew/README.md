@@ -11,7 +11,13 @@ addition to the steps described on the
 [TMK running on top of ChibiOS][tmk-chibios]
 page you also need to grab a copy of µGFX. From the top level directory of TMK:
 
-    git clone https://git.ugfx.io/ugfx/ugfx.git tmk_core/tools/ugfx
+    git clone https://github.com/ChibiOS/ChibiOS.git tmk_core/tool/chibios/ChibiOS
+    git clone https://git.ugfx.io/ugfx/ugfx.git tmk_core/tool/ugfx
+
+Known good commits are:
+
+* `62d2baf` for ChibiOS
+* `50c89877c3a` for µGFX
 
 [µGFX]: http://ugfx.io/
 [tmk-chibios]: https://github.com/tmk/tmk_keyboard/blob/master/tmk_core/protocol/chibios/README.md
