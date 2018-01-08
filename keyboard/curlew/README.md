@@ -13,16 +13,28 @@ page you also need to grab a copy of µGFX. From the top level directory of TMK:
 
     git clone https://github.com/ChibiOS/ChibiOS.git tmk_core/tool/chibios/ChibiOS
     git clone https://git.ugfx.io/ugfx/ugfx.git tmk_core/tool/ugfx
+    git clone https://github.com/wezm/tmk_visualizer.git keyboard/curlew/tmk_visualizer
 
 Known good commits are:
 
 * `62d2baf` for ChibiOS
-* `50c89877c3a` for µGFX
+* `281ccb72ce` for µGFX
+* The `curlew` branch of `tmk_visualizer`
 
 [µGFX]: http://ugfx.io/
 [tmk-chibios]: https://github.com/tmk/tmk_keyboard/blob/master/tmk_core/protocol/chibios/README.md
 
-With the dependencies in place build with `make`:
+### Build Tools
+
+An arm gcc needs to be available.
+
+#### FreeBSD
+
+    # pkg install arm-none-eabi-gcc arm-none-eabi-newlib gmake
+
+### Build
+
+With the dependencies in place build with `make`/`gmake`:
 
     cd keyboard/curlew
     make
