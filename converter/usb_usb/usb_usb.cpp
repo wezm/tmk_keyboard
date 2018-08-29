@@ -160,6 +160,7 @@ uint8_t matrix_scan(void) {
 
         // restore LED state when keyboard comes up
         if (usb_state == USB_STATE_RUNNING) {
+            dprintf("speed: %s\n", usb_host.getVbusState()==FSHOST ? "full" : "low");
             keyboard_set_leds(host_keyboard_leds());
         }
     }
@@ -226,8 +227,8 @@ void matrix_print(void) {
 
 void led_set(uint8_t usb_led)
 {
-    kbd1.SetReport(0, 0, 2, 0, 1, &usb_led);
-    kbd2.SetReport(0, 0, 2, 0, 1, &usb_led);
-    kbd3.SetReport(0, 0, 2, 0, 1, &usb_led);
-    kbd4.SetReport(0, 0, 2, 0, 1, &usb_led);
+    if (kbd1.isReady()) kbd1.SetReport(0, 0, 2, 0, 1, &usb_led);
+    if (kbd2.isReady()) kbd2.SetReport(0, 0, 2, 0, 1, &usb_led);
+    if (kbd3.isReady()) kbd3.SetReport(0, 0, 2, 0, 1, &usb_led);
+    if (kbd4.isReady()) kbd4.SetReport(0, 0, 2, 0, 1, &usb_led);
 }
