@@ -12,11 +12,11 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] __attribute__ ((section (".key
 const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 #endif
     /* Layer 0: Default Layer */
-    KEYMAP_JP(FN1, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, JYEN,BSPC, \
+    KEYMAP_JP(FN1, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS,BSPC, \
               TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC, \
               LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,BSLS,ENT, \
               LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,RO,  UP,  RSFT, \
-              FN0 ,ZKHK,LALT,LGUI,MHEN,     SPC,      HENK,KANA,RGUI,FN0 , LEFT,DOWN,RGHT),
+              FN0 ,ZKHK,LALT,LGUI,MHEN,     SPC,      HENK,RGUI,RALT,FN0 , LEFT,DOWN,RGHT),
 
     /* Layer 1: HHKB mode (HHKB Fn)
      * ,-----------------------------------------------------------.
